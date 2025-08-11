@@ -2,7 +2,7 @@ name: Cancel Previous Runs
 
 on:
   workflow_run:
-    workflows: ["Java Selenium CI"]  # Must exactly match `name:` in ci.yml
+    workflows: ["Java Selenium CI"]
     types:
       - requested
 
