@@ -29,4 +29,5 @@ public abstract class BaseUtils {
         driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1920,1080));
     }
+
 }
