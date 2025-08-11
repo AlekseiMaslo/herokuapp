@@ -22,5 +22,4 @@ public abstract class BaseTest extends BaseUtils {
     protected WebDriver getDriver() {
         return driver;
     }
-
 }
