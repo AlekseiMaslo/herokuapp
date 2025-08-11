@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public abstract class BaseUtils {
 
@@ -11,8 +12,21 @@ public abstract class BaseUtils {
 
     public void setupDriver() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
 
+        ChromeOptions options = new ChromeOptions();
+
+        String ci = System.getenv("CI");
+
+        if ("true".equalsIgnoreCase(ci)) {
+            options.addArguments(
+                    "--headless=new",
+                    "--disable-gpu",
+                    "--no-sandbox",
+                    "--disable-dev-shm-usage"
+            );
+        }
+
+        driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1920,1080));
     }
 }
