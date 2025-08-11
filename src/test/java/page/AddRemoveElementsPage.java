@@ -36,6 +36,14 @@ public class AddRemoveElementsPage extends BasePage {
         }
     }
 
+    public boolean isDeleteButtonGone() {
+        try {
+            return wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteButtonLocator));
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
     public AddRemoveElementsPage clickDeleteButton() {
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(deleteButtonLocator));
         button.click();

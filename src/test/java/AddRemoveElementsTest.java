@@ -18,7 +18,7 @@ public class AddRemoveElementsTest extends BaseTest {
 
         boolean isDeleteButtonStillPresent = addRemoveElementsPage
                 .clickDeleteButton()
-                .isDeleteButtonDisplayed();
-        Assert.assertFalse(isDeleteButtonStillPresent);
+                .isDeleteButtonGone();
+        Assert.assertTrue(isDeleteButtonStillPresent);
     }
 }
