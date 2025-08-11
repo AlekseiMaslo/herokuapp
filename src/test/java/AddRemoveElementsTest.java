@@ -21,5 +21,4 @@ public class AddRemoveElementsTest extends BaseTest {
                 .isDeleteButtonDisplayed();
         Assert.assertFalse(isDeleteButtonStillPresent);
     }
-
 }
