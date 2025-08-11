@@ -1,0 +1,17 @@
+name: Cancel Previous Runs
+
+on:
+  workflow_run:
+    workflows: ["Java Selenium CI"]  # Must exactly match `name:` in ci.yml
+    types:
+      - requested
+
+jobs:
+  cancel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
+        with:
+          access_token: ${{ github.token }}
