@@ -8,9 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public abstract class BaseUtils {
 
-    public WebDriver driver;
-
-    public void setupDriver() {
+    public WebDriver setupDriver() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -26,7 +24,9 @@ public abstract class BaseUtils {
             );
         }
 
-        driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
         driver.manage().window().setSize(new Dimension(1920,1080));
+
+        return driver;
     }
 }

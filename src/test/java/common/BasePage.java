@@ -11,15 +11,16 @@ public abstract class BasePage {
     private final WebDriver driver;
     protected WebDriverWait wait;
 
-    protected WebDriver getDriver() {
-        return driver;
-    }
+    private static final int DEFAULT_TIMEOUT_SECONDS = 10;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT_SECONDS));
+    }
 
+    protected WebDriver getDriver() {
+        return driver;
     }
 }
