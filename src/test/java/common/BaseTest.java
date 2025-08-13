@@ -6,21 +6,24 @@ import org.testng.annotations.BeforeMethod;
 
 public abstract class BaseTest extends BaseUtils {
 
+    protected WebDriver driver;
+
     @BeforeMethod
     public void beforeMethod() {
-        setupDriver();
+        driver = setupDriver();
 
         driver.get("https://the-internet.herokuapp.com/");
     }
 
     @AfterMethod
     public void afterMethod() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
-
 
     protected WebDriver getDriver() {
         return driver;
     }
-
 }
